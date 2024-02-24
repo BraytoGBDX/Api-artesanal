@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>Dulces Tipicos de Xicotepec</title>
+</head>
+
+<body style="background-image: url('https://www.cocinavital.mx/wp-content/uploads/2017/10/dulces-tipicos-mexicanos.jpg'); background-size: cover; background-repeat: no-repeat;">
+    <div data-role="page" data-theme="b">
+        <div data-role="header" style="background-color: #ff69b4; color: #fff;">
+            <h1>Dulces Tipicos de Xicotepec</h1>
+        </div>
+        <div  data-role="content">
+
+            <div class="ui-grid-b center" style="text-align: center;">
+                <div class="ui-block-a"><a href="/" class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline">Button</a></div>
+                <div class="ui-block-b"><a class="ui-shadow ui-btn ui-corner-all ui-icon-plus ui-btn-icon-notext ui-btn-inline">Button</a></div>
+            </div>
+
+            <div  data-role="content">
+                <style>
+                    .ui-grid-b {
+                        background-color: rgba(136, 241, 245, 0.7); /* Fondo semitransparente */
+                        border-color: black;
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                    }
+                    .ui-field-contain {
+                        margin-bottom: 20px;
+                    }
+                    label {
+                        color: #ffcccb; /* rosa pastel */
+                    }
+                    input[type="text"],
+                    input[type="number"],
+                    input[type="date"],
+                    select {
+                        background-color: #ffdab9; /* crema */
+                        color: #ff69b4; /* rosa pastel */
+                        border: 1px solid #ff69b4; /* rosa pastel */
+                        border-radius: 5px;
+                        padding: 5px;
+                    }
+                    button {
+                        background-color: #ffdab9; /* crema */
+                        color: #ff69b4; /* rosa pastel */
+                        border: 1px solid #ff69b4; /* rosa pastel */
+                        border-radius: 5px;
+                        padding: 5px 10px;
+                    }
+                </style>
+
+                <form action="/insert" method="post">
+                    <div class="ui-field-contain">
+                        <label for="textinput-fc">Codigo:</label>
+                        <input type="text" name="barcode" placeholder="Codigo de barras">
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <label for="textinput-fc">Descripcion:</label>
+                        <input type="text" name="description" placeholder="Descripcion">
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <label for="textinput-fc">Marca:</label>
+                        <input type="text" name="brand" placeholder="Marca">
+                    </div>
+                    
+                    <div class="ui-field-contain">
+                        <label for="textinput-fc">Precio compra:</label>
+                        <input type="number" name="price" placeholder="Precio de compra">
+                    </div>
+                    
+                    <div class="ui-field-contain">
+                        <label for="textinput-fc">Pecio de venta:</label>
+                        <input type="number" name="cost" placeholder="Precio de venta">
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <label for="textinput-fc">Existencias:</label>
+                        <input type="number" name="stock" placeholder="Existencias">
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <label for="textinput-fc">Fecha de caducidad:</label>
+                        <input type="date" name="expiredDate" placeholder="Caducidad">
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <label for="textinput-fc">Estado:</label>
+                        <select name="status" data-role="slider" data-mini="true">
+                            <option value="0">No</option>
+                            <option value="1">Si</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="submit-8" class="ui-shadow ui-btn ui-corner-all ui-mini">Guardar Dulce</button>
+
+                </form>
+                
+            </div>
+            <div data-role="footer" style="background-color: #ff69b4; color: #fff;">
+            <h5>Desarrollado por Gris❤️</h5>
+        </div>
+    </div>
+</body>
+
+</html>

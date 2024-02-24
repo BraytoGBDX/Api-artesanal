@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>Dulces Tipicos de Xicotepec</title>
+</head>
+
+<body>
+    <div data-role="page" data-theme="b">
+        <div data-role="header" style="background-color: #ff69b4; color: #fff;">
+            <h1>Dulces Tipicos de Xicotepec</h1>
+        </div>
+        <div data-role="content">
+
+            <div class="ui-grid-b center" style="text-align: center;">
+                <div class="ui-block-a"><a href="/" class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline">Home</a></div>
+                <div class="ui-block-b"><a href="/insert/insertCandy" class="ui-shadow ui-btn ui-corner-all ui-icon-plus ui-btn-icon-notext ui-btn-inline">Add Product</a></div>
+                <div class="ui-block-c"><a href="/viewCart/Cart" class="ui-shadow ui-btn ui-corner-all ui-icon-shop ui-btn-icon-notext ui-btn-inline ui-btn-active">View Cart</a></div>
+            </div>
+
+            <style>
+                .ui-grid-b {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                }
+
+                .ui-block {
+                    width: calc(33.33% - 10px);
+                    margin-bottom: 20px;
+                }
+
+                .ui-card {
+                    background-color: #ffdab9; /* crema */
+                    border: 1px solid #ff69b4; /* rosa pastel */
+                    border-radius: 5px;
+                    padding: 10px;
+                }
+
+                .ui-card-header h2 {
+                    color: #ff69b4; /* rosa pastel */
+                }
+
+                .ui-card-content p {
+                    color: #ff69b4; /* rosa pastel */
+                }
+
+                .ui-card-footer {
+                    text-align: center;
+                }
+
+                .ui-card-footer .ui-block-c a {
+                    background-color: #ffdab9; /* crema */
+                    color: #ff69b4; /* rosa pastel */
+                    border: 1px solid #ff69b4; /* rosa pastel */
+                    border-radius: 5px;
+                    padding: 5px 10px;
+                }
+
+                .ui-btn-b {
+                    background-color: #ffdab9; /* crema */
+                    color: #ff69b4; /* rosa pastel */
+                    border: 1px solid #ff69b4; /* rosa pastel */
+                    border-radius: 5px;
+                    padding: 5px 10px;
+                    text-decoration: none;
+                }
+
+                .ui-btn-b:hover {
+                    background-color: #ff69b4; /* rosa pastel */
+                    color: #ffdab9; /* crema */
+                }
+            </style>
+
+<div data-role="content" id="content">
+    <div class="ui-grid-b">
+        <% for (let i = 0; i < cart.length; i++) { %>
+            <div class="ui-block">
+                <div class="ui-card ui-shadow">
+                    <div class="ui-card-header">
+                        <h2><%= cart[i].description %></h2>
+                    </div>
+                    <div class="ui-card-content">
+                        <p>Brand: <%= cart[i].brand %></p>
+                        <p>Price: <%= cart[i].price %></p>
+                        <p>Quantity: <%= cart[i].quantity %></p>
+                    </div>
+                    <div class="ui-card-footer">
+                        <div class="ui-block-c"><a href="/deleteCart/<%= cart[i].barcode %>" class="ui-shadow ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+
+    <div data-role="content">
+        <a href="#" id="buyButton" class="ui-btn ui-btn-b ui-corner-all">Confirmar compra</a>
+    </div>
+</div>
+
+<script>
+    $(document).on("pagecreate", function () {
+        $("#buyButton").on("click", function () {
+            // Limpiar la página al hacer clic en el botón "Confirmar compra"
+            $("#content").empty();
+            // Mostrar un mensaje de agradecimiento
+            $("#content").append("<h3>¡Gracias por tu compra!</h3>");
+            // Agregar un botón para volver a cargar los productos en el carrito
+            $("#content").append('<a href="#" id="reloadButton" class="ui-btn ui-btn-b ui-corner-all">Volver a cargar productos</a>');
+            // Al hacer clic en el botón "Volver a cargar productos", recargar la página
+            $("#reloadButton").on("click", function () {
+                window.location.reload();
+            });
+        });
+    });
+</script>
+
+            
+
+            
+
+
+        </div>
+        <div data-role="footer" style="background-color: #ff69b4; color: #fff;">
+            <h5>Desarrollado por Gris❤️</h5>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>Dulces Tipicos de Xicotepec</title>
+</head>
+
+<body>
+    <div data-role="page" data-theme="b">
+        <div data-role="header" style="background-color: #ff69b4; color: #fff;">
+            <h1>Dulces Tipicos de Xicotepec</h1>
+        </div>
+        <div data-role="content">
+            <div data-role="content">
+                <form action="/<%= candy.barcode %>" method="post">
+                    <div class="ui-field-contain">
+                        <label for="textinput-fc">Codigo:</label>
+                        <input type="text" name="barcode" placeholder="Código de barras" value="<%= candy.barcode %>">
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <label for="textinput-fc">Descripcion:</label>
+                        <input type="text" name="description" placeholder="Descripcion" value="<%= candy.description%>">
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <label for="textinput-fc">Marca:</label>
+                        <input type="text" name="brand" placeholder="Marca" value="<%= candy.brand %>">
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <label for="textinput-fc">Precio compra:</label>
+                        <input type="number" name="price" placeholder="Precio de compra" value="<%= candy.price %>">
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <label for="textinput-fc">Precio de venta:</label>
+                        <input type="number" name="cost" placeholder="Precio de venta" value="<%= candy.cost %>">
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <label for="textinput-fc">Existencias:</label>
+                        <input type="number" name="stock" placeholder="Existencias" value="<%= candy.stock %>">
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <label for="textinput-fc">Fecha de caducidad:</label>
+                        <input type="date" name="expiredDate" placeholder="Caducidad" value="<%= candy.expiredDate %>">
+                    </div>
+
+                    <select name="status" data-role="slider" data-mini="true" defaultvalue="<%= candy.status %>">
+                        <% if (candy.status == 1) { %>
+                        <option value="0">No</option>
+                        <option value="1" selected>Si</option>
+                        <% } else { %>
+                        <option value="0" selected>No</option>
+                        <option value="1">Si</option>
+                        <% } %>
+                    </select>
+
+                    <input type="hidden" name="_method" value="PUT">
+
+                    <button type="submit" id="submit-8" class="ui-shadow ui-btn ui-corner-all ui-mini">Guardar producto</button>
+                </form>
+
+                <div data-role="footer" style="background-color: #ff69b4; color: #fff;">
+                    <h5>Desarrollado por Gris❤️</h5>
+                </div>
+            </div>
+            <style>
+                body {
+                    background-color: #ffdab9; /* crema */
+                    color: #ff69b4; /* rosa pastel */
+                    font-family: Arial, sans-serif;
+                    padding: 20px;
+                }
+
+                .ui-field-contain {
+                    margin-bottom: 15px;
+                }
+
+                label {
+                    color: #ff69b4; /* rosa pastel */
+                    font-weight: bold;
+                }
+
+                input[type="text"],
+                input[type="number"],
+                select {
+                    background-color: #fff; /* blanco */
+                    color: #ff69b4; /* rosa pastel */
+                    border: 1px solid #ff69b4; /* rosa pastel */
+                    border-radius: 5px;
+                    padding: 5px 10px;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+
+                input[type="date"] {
+                    background-color: #fff; /* blanco */
+                    color: #ff69b4; /* rosa pastel */
+                    border: 1px solid #ff69b4; /* rosa pastel */
+                    border-radius: 5px;
+                    padding: 5px 10px;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+
+                input[type="submit"] {
+                    background-color: #ff69b4; /* rosa pastel */
+                    color: #fff; /* blanco */
+                    border: none;
+                    border-radius: 5px;
+                    padding: 10px 20px;
+                    cursor: pointer;
+                }
+
+                input[type="submit"]:hover {
+                    background-color: #ffdab9; /* crema */
+                    color: #ff69b4; /* rosa pastel */
+                }
+
+                h1 {
+                    color: #ff69b4; /* rosa pastel */
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+
+                .ui-field-contain {
+                    text-align: center;
+                }
+
+                .ui-btn {
+                    background-color: #ff69b4; /* rosa pastel */
+                    color: #fff; /* blanco */
+                    border: none;
+                    border-radius: 5px;
+                    padding: 10px 20px;
+                    cursor: pointer;
+                    text-decoration: none;
+                }
+
+                .ui-btn:hover {
+                    background-color: #ffdab9; /* crema */
+                    color: #ff69b4; /* rosa pastel */
+                }
+
+                .ui-btn-inline {
+                    margin: 0;
+                }
+
+                .ui-footer {
+                    text-align: center;
+                    margin-top: 20px;
+                }
+            </style>
+</body>
+
+</html>
